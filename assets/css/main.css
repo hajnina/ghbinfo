@@ -39,6 +39,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	overflow-x: hidden;
 }
 
 ol, ul {
@@ -107,8 +108,8 @@ input, select, textarea {
 	}
 
 	body {
-		--gradient1: rgba(223, 92, 50, 0.5);
-		--gradient2: rgba(46, 49, 65, 0.5);
+		--gradient1: rgba(250, 92, 25, 0.75);
+		--gradient2: rgba(46, 49, 75, 0.75);
 
 		background-color: #2e3141;
 		background-image: linear-gradient(315deg, var(--gradient2), var(--gradient1)),url("../../images/splash.jpg");
@@ -2351,6 +2352,20 @@ input, select, textarea {
 		opacity: 1.0;
 	}
 
+
+.ghblogo{
+	height: 80vh;
+	position: absolute;
+	display: block;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 0.5;
+	filter: invert(100%);
+}
+
+
 /* Box */
 
 	.box {
@@ -2969,6 +2984,52 @@ input, select, textarea {
 
 		}
 
+		.kalendar{
+			padding: 10vh 20vw;
+		}
+
+		.kalendar .headerBg{
+			background-color: var(--color-1);
+			display: inline-block;
+			position: absolute;
+			left: 50vw;
+			transform:  translateY(-100%) scale(1.5) translateX(-50%) rotate(5deg);
+			transition: all 0.3s;
+		}
+
+			.kalendar .headerBg:hover{
+				transform: translateY(-100%) scale(1.5) translateX(-50%) rotate(-5deg);
+			}
+
+			.kalendar .headerBg:hover h2{
+				transform: rotate(5deg) scale(calc(2/3)) translateY(50%);
+			}
+
+		.kalendar .headerBg h2{
+			transform: rotate(-5deg) scale(calc(2/3)) translateY(50%);
+			transition: all 0.3s;
+		}
+
+		.kalendar ul{
+			background-color: rgba(255,255,255,0.1);
+			margin-top: 3em;
+			padding: 0;
+		}
+
+		.kalendar ul li:nth-child(2n) {
+			background-color: rgba(0,0,0,0.2);
+		}
+		.kalendar ul li{
+			list-style: none;
+			padding: 2em;
+		}
+
+		.kalendar ul li span{
+			float: right;
+			right: 0%;
+		}
+
+
 /* Features */
 
 	.features {
@@ -2981,6 +3042,7 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		margin: 0 0 2em 0;
+		padding-top: 250px;
 	}
 
 		.features article {
@@ -2996,8 +3058,9 @@ input, select, textarea {
 			}
 
 			.features article .image {
-				border-radius: 5px 5px 0 0;
+
 				display: block;
+				height: 15vh;
 				margin-bottom: 1.75em;
 				margin-left: -1.75em;
 				margin-top: -1.75em;
@@ -3006,8 +3069,14 @@ input, select, textarea {
 			}
 
 				.features article .image img {
-					border-radius: 5px 5px 0 0;
-					width: 100%;
+					border-radius: 100% 100%;
+					/*width: 10vw;
+					height: 10vw;*/
+					height: 17vw;
+					width: 17vw;
+					position: absolute;
+					left: 50%;
+					transform: translate(-50%, -50%);
 				}
 
 		@media screen and (max-width: 980px) {
@@ -3056,7 +3125,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: var(--color-1);/*rgba(53, 56, 73, 0.95);*/
+		background: var(--color-1);/*rgba(53, 56, 73, 0.95);*/
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
@@ -3233,7 +3302,7 @@ input, select, textarea {
 		-ms-user-select: none;
 		user-select: none;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		background: rgba(46, 49, 65, 0.8);
+		background: rgba(46, 49, 65, 0.8), rgba(1,1,1,0.1);
 		cursor: default;
 		height: 100%;
 		left: 0;
@@ -3309,10 +3378,12 @@ input, select, textarea {
 					line-height: 1.85em;
 					padding: 0.75em 0;
 					text-transform: uppercase;
+					transition: 0.2s background;
 				}
 
 					#menu .links li a:hover {
-						background: #45558d;
+						background: rgba(120,0,0,0.2);
+						color: white;
 					}
 
 		@media screen and (max-width: 736px) {
@@ -3353,8 +3424,8 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		padding: 10em 0 4.75em 0 ;
-		height: 100vh;
+		padding: 40vh 0 4.75em 0 ;
+		height: 85vh;
 	}
 
 		#banner .inner {
@@ -3405,10 +3476,13 @@ input, select, textarea {
 			-ms-filter: blur(0);
 			filter: blur(0);
 			opacity: 1;
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			//border-bottom: solid 2px rgba(255, 255, 255, 0.125);
 			font-size: 2.25em;
 			margin-bottom: 0.8em;
 			padding-bottom: 0.4em;
+			margin-top: 1em;
+			text-align: center;
+			//color: var(--color-1);
 		}
 
 		#banner p {
@@ -3435,6 +3509,7 @@ input, select, textarea {
 			letter-spacing: 0.1em;
 			line-height: 2;
 			text-transform: uppercase;
+			text-align: center;
 		}
 
 		@media screen and (max-width: 1280px) {
